@@ -1,0 +1,54 @@
+<!--pages/classDetail/classDetail.wxml-->
+<scroll-view scroll-y bindscrolltolower="getlist">
+  <view class='my-class'>
+    <view class='card-wrapper'>
+      <image mode='widthFix' src='{{info.class_logo}}'></image>
+      <view class='desc'>
+        <view class='title'>{{info.class_name}}</view>
+        <view class='subtitle'>口号：{{info.class_desc}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='tab-list'>
+    <view class='{{activeTab == 0 ? "active" : ""}}' data-index='0' bindtap='switchTab'>班级风采</view>
+    <view class='{{activeTab == 1 ? "active" : ""}}' data-index='1' bindtap='switchTab'>班级成员</view>
+  </view>
+
+  <view class='list-wrapper' wx:if="{{activeTab == 0}}">
+    <navigator class='list-item' hover-class="none" wx:for="{{list}}" url="{{'./classDynamicInfo/classDynamicInfo?id=' + item.id}}">
+      <image mode='widthFix' src='{{item.images}}'></image>
+      <view class='desc'>
+        <view class='title'>{{item.title}}</view>
+        <view class='time'>{{item.create_time}}</view>
+      </view>
+      <view class='subtitle'>{{item.desc}}</view>
+    </navigator>
+  </view>
+
+  <view class='member-list' wx:if="{{activeTab == 1}}" >
+    <navigator class='member-item' hover-class="none" wx:for="{{list}}" url="{{'./memberDetail/memberDetail?id=' + item.uid}}">
+      <image class='member-avatar' mode='widthFix' src='{{item.avatar_middle}}'></image>
+      <view class='info'>
+        <view class='basic-info'>
+          <text class='name'>{{item.uname}}</text>
+          <text wx:if="{{item.identify}}" class='other position'>{{item.identify}}</text>
+          <text wx:if="{{item.identify}}" class='other'>|</text>
+          <text wx:if="{{item.industry}}" class='other trade'>{{item.industry}}</text>
+          <text wx:if="{{item.industry}}" class='other'>|</text>
+          <text wx:if="{{item.come_city}}" class='other addr'>{{item.come_city}}</text>
+        </view>
+        <view class='activity'>
+          <text>{{item.last_login_day}}天前活跃</text>
+          <view>已登录 {{item.logged_days}}天</view>
+        </view>
+      </view>
+      <image class='arrow-right' mode='widthFix' src='/icon/arrow_right.png'></image>
+    </navigator>
+  </view>
+  <view wx:if="{{showload}}" class='loading'><image mode="widthFix" src='/icon/loading.png'></image></view>
+  <view class='noMore' wx:if="{{noMore}}">
+    <image src='/icon/nomore.png'></image>
+    <view>暂无数据</view>
+  </view>
+</scroll-view>

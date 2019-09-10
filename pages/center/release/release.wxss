@@ -1,0 +1,59 @@
+/* pages/center/release/release.wxss */
+page {
+  background-color: #f8f8f8;
+}
+textarea {
+  width: 100%;
+  margin-bottom: 30rpx;
+  font-size: 28rpx;
+  color: #9CA8BD;
+}
+.content-area {
+  padding: 30rpx 30rpx 26rpx;
+  background-color: #fff;
+  font-size: 0;
+}
+.typeChoose {
+  font-size: 28rpx;
+  padding-bottom: 20rpx;
+  color: #CD3F3F;
+}
+.img-wrapper, .upload-btn {
+  display: inline-block;
+  width: 150rpx;
+  height: 150rpx;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+  vertical-align: text-top;
+}
+.img-wrapper {
+  position: relative;
+  border-radius: 4rpx;
+  overflow: hidden;
+  font-size: 0;
+}
+.img-wrapper image {
+  width: 100%;
+  height: 100%;
+}
+.img-wrapper image.del-btn {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 10rpx;
+  right: 10rpx;
+}
+.custom-btn {
+  margin-top: 100rpx;
+  padding: 0 30rpx;
+}
+.custom-btn text {
+  display: block;
+  border-radius: 6rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 32rpx;
+  color: #fff;
+  text-align: center;
+  background-color: #CD3F3F;
+}

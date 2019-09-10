@@ -1,0 +1,187 @@
+page {
+  background-color: #F9F9F9;
+}
+.header-info {
+  display: flex;
+  align-items: center;
+  padding: 22rpx 30rpx 168rpx;
+  background-color: #CD3F3F;
+}
+.avatar {
+  width: 106rpx;
+  height: 106rpx;
+  border: 4rpx solid #fff;
+  border-radius: 50%;
+  margin-right: 30rpx;
+}
+.some-info {
+  flex: 1;
+}
+.some-info .name {
+  font-size: 0;
+}
+.some-info .name text:first-child {
+  font-size: 34rpx;
+  color: #fff;
+  margin-right: 20rpx;
+}
+.some-info .name text:last-child {
+  display: inline-block;
+  padding: 6rpx 12rpx; 
+  line-height: 1;
+  font-size: 22rpx;
+  color: #E5C355;
+  border: 1px solid #E5C355;
+  border-radius: 34rpx;
+}
+.some-info .info {
+  font-size: 0;
+}
+.some-info .info > view {
+  display: inline-block;
+  color: #fff;
+  font-size: 26rpx;
+  margin-right: 30rpx;
+  padding-right: 30rpx;
+  line-height: 1;
+  border-right: 1px solid #fff;
+  margin-top: 20rpx;
+}
+.some-info .info > view:last-child {
+  border-right: 0;
+}
+.card-wrapper {
+  position: absolute;
+  width: 100%;
+  top: 80px;
+  left: 0;
+  padding: 0 30rpx;
+}
+.card {
+  padding: 30rpx 0;
+  background-color: #fff;
+  border-radius: 10rpx;
+  box-shadow: 0 8rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+.field-list {
+  font-size: 0;
+  padding: 0 30rpx;
+}
+.field-list .field-item {
+  font-size: 26rpx;
+  color: #3C3C3C;
+  padding: 12rpx 40rpx; 
+  background-color: #F4F4F4;
+  display: inline-block;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+  border-radius: 40rpx;
+  line-height: 1;
+}
+.grid-info {
+  display: flex;
+  padding: 0 30rpx;
+  margin: 20rpx 0 30rpx;
+  align-items: center;
+}
+.grid-info .grid-item {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+.grid-info .grid-item::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 40%;
+  background-color: #B6B6B6;
+  top: 30%;
+  right: 0;
+}
+.grid-info .grid-item:last-child:after {
+  display: none;
+}
+.grid-info .grid-item view:first-child {
+  font-size: 34rpx;
+  color: #3D3F4C;
+}
+.grid-info .grid-item view:last-child {
+  font-size: 26rpx;
+  color: #9CA8BD;
+}
+.sign {
+  display: flex;
+  align-items: center;
+  padding: 30rpx 30rpx 0;
+  border-top: 1px dashed #DCDCDC;
+}
+.sign .text-info {
+  flex: 1;
+}
+.sign .text-info > view {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 40rpx;
+}
+.sign .text-info > view text {
+  display: inline-block;
+  vertical-align: baseline;
+}
+.sign .text-info > view text.text-key {
+  font-size: 24rpx;
+  color: #9CA8BD;
+}
+.sign .text-info > view text.text-value {
+  font-size: 32rpx;
+  color: #E5C355;
+  font-style: oblique;
+}
+.sign-btn {
+  font-size: 26rpx;
+  color: #fff;
+  padding: 15rpx 45rpx;
+  background-color: #CD3F3F;
+  border-radius: 100rpx;
+  box-shadow: 2px 2px 4px rgba(205,63,63,0.77);
+}
+.sign-btn.signed {
+  background-color: #ccc;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+.link-list {
+  padding: 0 30rpx 0;
+  background-color: #fff;
+}
+.link-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx 0;
+  border-bottom: 1px solid #EEEEEE;
+}
+.link-list .link-item:last-child {
+  border-bottom: 0;
+}
+.link-item > view {
+  font-size: 30rpx;
+  color: #303336;
+}
+.inline-cell {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.inline-cell > text {
+  font-size: 30rpx;
+  color: #303336;
+}
+.inline-cell > text:last-child {
+  font-size: 28rpx;
+  color: #788397;
+  margin-right: 10rpx;
+}
+.link-item > image {
+  width: 24rpx;
+  height: 24rpx;
+}

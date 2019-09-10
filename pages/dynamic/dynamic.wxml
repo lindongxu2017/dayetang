@@ -1,0 +1,79 @@
+<!--pages/dynamic/dynamic.wxml-->
+<scroll-view scroll-y bindscrolltolower="getlist">
+  <view class='search-wrapper'>
+    <view class='search-bar'>
+      <view class='icon-wrapper {{isFocus ? "" : "isFocus"}}'>
+        <image mode='widthFix' src='/icon/search.png'></image>
+      </view>
+      <input confirm-type="search" bindblur="inputBlur" bindfocus="inputFocus" value='{{searchValue}}' bindconfirm="inputSearch" bindinput="inputPrint" placeholder='输入关键字搜索' placeholder-style="color: #9CA8BD"></input>
+    </view>
+  </view>
+  <view class='tab-list'>
+    <view wx:for="{{tablist}}" class='{{activeTab == index ? "active" : ""}}' 
+    data-index='{{index}}' bindtap='switchTab'>{{item.type_name}}</view>
+  </view>
+  <!-- 活动列表 -->
+  <view class='list-wrapper' wx:if="{{activeTab == 0}}">
+    <navigator class='list-item' wx:for="{{list}}" hover-class="none"
+     url="{{'../classDetail/memberDetail/activityList/detail/detail?id=' + item.topic_id}}" >
+      <view class='card-head'>
+        <view class='avatar-name'>
+          <image mode='widthFix' src='{{item.release_avatar}}'></image>
+          <text>{{item.release_name}}</text>
+        </view>
+        <view class='time'>{{item.ctime}}</view>
+      </view>
+      <image mode='widthFix' src='{{item.pic}}'></image>
+      <view class='title activity'>{{item.topic_name}}</view>
+      <view class='title sub'>
+        <text>#最新活动#</text>{{item.note}}
+      </view>
+      <view class='flex-sub-info'>
+        <view class='date'>
+          <image class='clock' mode='widthFix' src='/icon/clock.png'></image>
+          <text>{{item.topic_time}}</text>
+        </view>
+        <view class='browse'>
+          <image mode='widthFix' src='/icon/browse.png'></image>
+          <text>{{item.topic_read}}</text>
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <!-- 动态列表 -->
+  <navigator wx:if="{{activeTab != 0}}" hover-class="none" class='list-item-wrapper' wx:for="{{list}}"
+   url="{{'../classDetail/memberDetail/dynamicList/detail/detail?id=' + item.feed_id}}" >
+      <view class='list-item-content'>
+        <view class='card-head'>
+          <view class='avatar-name'>
+            <image mode='widthFix' src='{{item.user_info.avatar_middle}}'></image>
+            <text>{{item.user_info.uname}}</text>
+          </view>
+          <view class='time'>{{item.publish_time}}</view>
+        </view>
+        <view class='card-title'><text>#{{item.feed_typename}}# </text>{{item.feed_content}}</view>
+        <view class='card-body'>
+          <image mode='aspectFill' wx:for="{{item.attach}}" wx:for-item="obj" src='{{obj.attach_url}}'></image>
+        </view>
+        <view class='card-footer'>
+          <view class='block'>
+            <image mode='widthFix' src='/icon/message.png'></image>
+            <text>{{item.comment_count}}</text>
+          </view>
+          <view class='block'>
+            <image mode='widthFix' src='/icon/browse.png'></image>
+            <text>{{item.feed_read}}</text>
+          </view>
+          <view class='block' wx:if="{{userinfo.uid == item.user_info.uid}}" data-index="{{index}}" data-item="{{item}}" catchtap="del">
+            <image mode='widthFix' src='/icon/delete2.png'></image>
+          </view>
+        </view>
+      </view>
+  </navigator>
+
+  <view wx:if="{{showload}}" class='loading'><image mode="widthFix" src='/icon/loading.png'></image></view>
+  <view class='noMore' wx:if="{{noMore}}">
+    <image src='/icon/nomore.png'></image>
+    <view>暂无数据</view>
+  </view>
+</scroll-view>

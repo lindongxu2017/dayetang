@@ -1,0 +1,57 @@
+<!--index.wxml-->
+<!--scroll-view-->
+<scroll-view scroll-y bindscrolltolower="void">
+  <view class='banner-wrapper'>
+    <!--搜索栏-->
+    <view class='search-bar-wrapper'>
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{arealist}}" range-key='cate_name'>
+        <view class="picker">
+          <text>{{arealist[index].cate_name}}</text>
+          <image mode='widthFix' src='/icon/down_icon.png'></image>
+        </view>
+      </picker>
+      <navigator class='search-icon' hover-class='none' url='/pages/search/search'>
+        <image src='/icon/search_icon_white.png'></image>
+      </navigator>
+      <!-- <text>输入关键字搜索</text> -->
+    </view>
+    <!--swiper-->
+    <swiper autoplay circular interval="3000">
+      <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+        <swiper-item>
+          <image mode='aspectFill' src="{{item}}" class="slide-image"/>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class='main-conetnt'>
+    <view class='my-class' wx:if="{{isReg}}">
+      <view class='title'>我的班级</view>
+      <view class='card-wrapper' bindtap="goMyClass">
+        <image mode='widthFix' src='{{myClassInfo.class_logo}}'></image>
+        <view class='desc'>
+          <view class='title'>{{myClassInfo.class_name}}</view>
+          <view class='subtitle'>口号：{{myClassInfo.class_desc}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='class-list' wx:if="{{list.length > 0}}">
+      <view class='title'>其他班级</view>
+      <view class='my-class' wx:for="{{list}}" wx:key="{{index}}" data-index='{{index}}' bindtap='goClassDetail'>
+        <view class='card-wrapper'>
+          <image mode='widthFix' src='{{item.class_logo}}'></image>
+          <view class='desc'>
+            <view class='title'>{{item.class_name}}</view>
+            <view class='subtitle'>口号：{{item.class_desc}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{showload}}" class='loading'><image mode="widthFix" src='/icon/loading.png'></image></view>
+    <view class='noMore' wx:if="{{noMore}}">
+      <image src='/icon/nomore.png'></image>
+      <view>暂无数据</view>
+    </view>
+  </view>
+</scroll-view>
+

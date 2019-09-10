@@ -1,0 +1,67 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/mailList/mailList",
+    "pages/center/center",
+    "pages/dynamic/dynamic",
+    "pages/center/infomation/infomation",
+    "pages/center/infomation/edit/edit",
+    "pages/register/register",
+    "pages/search/search",
+    "pages/classDetail/classDetail",
+    "pages/classDetail/memberDetail/memberDetail",
+    "pages/classDetail/classDynamicInfo/classDynamicInfo",
+    "pages/classDetail/memberDetail/activityList/activityList",
+    "pages/classDetail/memberDetail/activityList/detail/detail",
+    "pages/classDetail/memberDetail/dynamicList/dynamicList",
+    "pages/classDetail/memberDetail/dynamicList/detail/detail",
+    "pages/center/rank/rank",
+    "pages/center/dynamic/dynamic",
+    "pages/center/release/release",
+    "pages/center/infomation/field/field",
+    "pages/center/focus/focus",
+    "pages/center/reputation/reputation",
+    "pages/wxAuth/wxAuth",
+    "pages/center/impress/impress"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#2E3747",
+    "navigationBarTitleText": "大业堂",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f8f8f8"
+  },
+  "tabBar": {
+    "color": "#DFDEDE",
+    "selectedColor": "#CD3F3F",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "./icon/home.png",
+        "selectedIconPath": "./icon/home_select.png"
+      },
+      {
+        "pagePath": "pages/mailList/mailList",
+        "text": "通讯录",
+        "iconPath": "./icon/maillist.png",
+        "selectedIconPath": "./icon/maillist_select.png"
+      },
+      {
+        "pagePath": "pages/dynamic/dynamic",
+        "text": "动态",
+        "iconPath": "./icon/dynamic.png",
+        "selectedIconPath": "./icon/dynamic_select.png"
+      },
+      {
+        "pagePath": "pages/center/center",
+        "text": "我的",
+        "iconPath": "./icon/center.png",
+        "selectedIconPath": "./icon/center_select.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

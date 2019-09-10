@@ -1,0 +1,18 @@
+<!--pages/center/infomation/field/field.wxml-->
+<view class="section">
+  <view class='scroll-wrapper'>
+    <scroll-view scroll-y>
+      <view class='area-list'>
+        <view class='area-type' wx:for="{{list}}">
+          <view class='area-title'>{{item.title}}</view>
+          <view class="area-item {{obj.active?'active':''}}" wx:for="{{item.child}}" wx:for-item="obj" wx:for-index="_index" data-index='{{index}}' data-order="{{_index}}" data-name="{{obj.title}}" bindtap='select'>
+            {{obj.title}}
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class='btn-wrapper'>
+    <view class='btn' bindtap='confirm'>保存</view>
+  </view>
+</view>

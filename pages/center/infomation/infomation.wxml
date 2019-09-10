@@ -1,0 +1,112 @@
+<!--pages/center/infomation/infomation.wxml-->
+<view class='title'>个人信息</view>
+<view class='cell-area'>
+  <view class='cell-item cell-avatar'>
+    <text class='cell-title'>头像</text>
+    <view class='cell-value'>
+      <image mode='aspectFill' src='{{info.avatar_middle}}' bindtap='modifyAvatar'></image>
+    </view>
+  </view>
+  <view class='cell-item'>
+    <text class='cell-title'>姓名</text>
+    <view class='cell-value' data-key="{{'uname'}}" data-value="{{info.uname}}" data-title='编辑昵称' bindtap='modifyInfo'>
+      <text>{{info.uname}}</text>
+    </view>
+    <image data-key="{{'uname'}}" data-value="{{info.uname}}" data-title='编辑昵称' bindtap='modifyInfo' class='arrow-right' src='/icon/arrow_right_2.png'></image>
+  </view>
+  <view class='cell-item'>
+    <text class='cell-title'>手机号码</text>
+    <view class='cell-value' data-key="{{'phone'}}" data-value="{{info.phone}}" data-title='编辑手机号' bindtap='modifyInfo'>
+      <text>{{info.phone}}</text>
+    </view>
+    <image data-key="{{'phone'}}" data-value="{{info.phone}}" data-title='编辑手机号' bindtap='modifyInfo' class='arrow-right' src='/icon/arrow_right_2.png'></image>
+  </view>
+  <view class='cell-item'>
+    <text class='cell-title'>我的人脉</text>
+    <view class='cell-value' data-key="{{'keep'}}" data-value="{{info.keep}}" data-title='编辑人脉' bindtap='modifyInfo'>
+      <text>{{info.keep}}</text>
+    </view>
+    <image data-key="{{'keep'}}" data-value="{{info.keep}}" data-title='编辑人脉' bindtap='modifyInfo' class='arrow-right' src='/icon/arrow_right_2.png'></image>
+  </view>
+  <view class='cell-item'>
+    <text class='cell-title'>来往城市</text>
+    <view class='cell-value' data-key="{{'come_city'}}" data-value="{{info.come_city}}" data-title='编辑来往城市' bindtap='modifyInfo'>
+      <text>{{info.come_city}}</text>
+    </view>
+    <image data-key="{{'come_city'}}" data-value="{{info.come_city}}" data-title='编辑来往城市' bindtap='modifyInfo' class='arrow-right' src='/icon/arrow_right_2.png'></image>
+  </view>
+  <view class='cell-item'>
+    <text class='cell-title'>从事行业</text>
+    <view class='cell-value' data-key="{{'industry'}}" data-value="{{info.industry}}" data-title='编辑从事行业' bindtap='modifyInfo'>
+      <text>{{info.industry}}</text>
+    </view>
+    <image data-key="{{'industry'}}" data-value="{{info.industry}}" data-title='编辑从事行业' bindtap='modifyInfo' class='arrow-right' src='/icon/arrow_right_2.png'></image>
+  </view>
+  <view class='cell-item'>
+    <text class='cell-title'>熟悉领域</text>
+    <view class='cell-value tag' data-key="{{'tag'}}" data-value="{{info.tag}}" bindtap='changeField'>
+      <text wx:for="{{info.tag}}">{{item + (index==info.tag.length-1?'':'、')}}</text>
+    </view>
+    <image data-key="{{'tag'}}" data-value="{{info.tag}}" bindtap='changeField' class='arrow-right' src='/icon/arrow_right_2.png'></image>
+  </view>
+  <view class='cell-item'>
+    <text class='cell-title'>合作</text>
+    <view class='cell-value' data-key="{{'partner'}}" data-value="{{info.partner}}" data-title='编辑合作' bindtap='modifyInfo'>
+      <text>{{info.partner}}</text>
+    </view>
+    <image data-key="{{'partner'}}" data-value="{{info.partner}}" data-title='编辑合作' bindtap='modifyInfo' class='arrow-right' src='/icon/arrow_right_2.png'></image>
+  </view>
+  <view class='cell-item'>
+    <text class='cell-title'>期待结识</text>
+    <view class='cell-value' data-key="{{'expect'}}" data-value="{{info.expect}}" data-title='编辑期待结识' bindtap='modifyInfo'>
+      <text>{{info.expect}}</text>
+    </view>
+    <image data-key="{{'expect'}}" data-value="{{info.expect}}" data-title='编辑期待结识' bindtap='modifyInfo' class='arrow-right' src='/icon/arrow_right_2.png'></image>
+  </view>
+  <view class='cell-item'>
+    <text class='cell-title'>兴趣爱好</text>
+    <view class='cell-value' data-key="{{'intro'}}" data-value="{{info.intro}}" data-title='编辑兴趣爱好' bindtap='modifyInfo'>
+      <text>{{info.intro}}</text>
+    </view>
+    <image data-key="{{'intro'}}" data-value="{{info.intro}}" data-title='编辑兴趣爱好' bindtap='modifyInfo' class='arrow-right' src='/icon/arrow_right_2.png'></image>
+  </view>
+</view>
+
+<view class='title'>公司信息</view>
+<view class='cell-area'>
+  <view class='cell-item'>
+    <text class='cell-title'>公司名称</text>
+    <view class='cell-value company-desc' data-key="{{'company_name'}}" data-value="{{info.company_name}}" data-title='编辑公司介绍' bindtap='modifyInfo'>
+      <text>{{info.company_name}}</text>
+    </view>
+    <image data-key="{{'company_name'}}" data-value="{{info.company_name}}" data-title='编辑公司介绍' bindtap='modifyInfo' class='arrow-right' src='/icon/arrow_right_2.png'></image>
+  </view>
+  <view class='cell-item'>
+    <text class='cell-title'>身份</text>
+    <view class='cell-value' data-key="{{'identify'}}" data-value="{{info.identify}}" data-title='编辑身份' bindtap='modifyInfo'>
+      <text>{{info.identify}}</text>
+    </view>
+    <image data-key="{{'identify'}}" data-value="{{info.identify}}" bindtap='modifyInfo' data-title='编辑身份' class='arrow-right' src='/icon/arrow_right_2.png'></image>
+  </view>
+  <view class='cell-item'>
+    <text class='cell-title'>公司介绍</text>
+    <view class='cell-value company-desc' data-key="{{'company_intro'}}" data-value="{{info.company_intro}}" data-title='编辑公司介绍' bindtap='modifyInfo'>
+      <text>{{info.company_intro}}</text>
+    </view>
+    <image data-key="{{'company_intro'}}" data-value="{{info.company_intro}}" data-title='编辑公司介绍' bindtap='modifyInfo' class='arrow-right' src='/icon/arrow_right_2.png'></image>
+  </view>
+  <view class='cell-item'>
+    <text class='cell-title'>主营业务</text>
+    <view class='cell-value company-desc' data-key="{{'company_work'}}" data-value="{{info.company_work}}" data-title='主营业务' bindtap='modifyInfo'>
+      <text>{{info.company_work}}</text>
+    </view>
+    <image data-key="{{'company_work'}}" data-value="{{info.company_work}}" data-title='主营业务' bindtap='modifyInfo' class='arrow-right' src='/icon/arrow_right_2.png'></image>
+  </view>
+</view>
+
+<view class='cell-item referee'>
+  <text class='cell-title'>推荐人</text>
+  <view class='cell-value'>
+    <text>{{info.referee}}</text>
+  </view>
+</view>

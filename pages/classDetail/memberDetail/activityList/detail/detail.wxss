@@ -1,0 +1,115 @@
+/* pages/classDetail/memberDetail/activityList/detail/detail.wxss */
+.main-wrapper {
+  padding: 20rpx 30rpx 40rpx;
+  font-size: 0;
+}
+.main-wrapper > image{
+  width: 100%;
+  border-radius: 10rpx;
+  margin-bottom: 30rpx;
+}
+.main-wrapper > .title {
+  font-size: 36rpx;
+  color: #3D3F4C;
+  margin-bottom: 15rpx;
+}
+.main-wrapper > .subtitle {
+  font-size: 30rpx;
+  color: #9CA8BD;
+  line-height: 46rpx;
+  margin-bottom: 15rpx;
+}
+.main-wrapper > .subtitle text {
+  color: #6EAFF1;
+}
+.browse {
+  margin-bottom: 25rpx;
+}
+.browse > image {
+  width: 34rpx;
+  height: 34rpx;
+  margin-right: 12rpx;
+  vertical-align: middle;
+}
+.browse > text {
+  font-size: 26rpx;
+  color: #9CA8BD;
+  vertical-align: middle;
+}
+.release {
+  display: flex;
+  align-items: center;
+  padding: 30rpx 0;
+  border-top: 1px solid #E5E5E5;
+  border-bottom: 1px solid #E5E5E5;
+}
+.release > image {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  margin-right: 23rpx;
+}
+.release .content .name {
+  font-size: 30rpx;
+  color: #3D3F4C;
+  margin-bottom: 10rpx;
+}
+.release .content .time {
+  font-size: 28rpx;
+  color: #9CA8BD;
+}
+.block-item {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 40rpx;
+}
+.block-item > image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 20rpx;
+  margin-top: 4rpx;
+}
+.block-item .cell .title {
+  font-size: 30rpx;
+  color: #3D3F4C;
+  margin-bottom: 20rpx;
+}
+.block-item .cell .value {
+  font-size: 28rpx;
+  color: #9CA8BD
+}
+.share-title {
+  text-align: center;
+  margin-top: 90rpx;
+}
+.share-title > view {
+  font-size: 30rpx;
+  display: inline-block;
+  vertical-align: middle;
+  color: #E5E5E5;
+}
+.share-title > view:nth-child(2) {
+  color: #3D3F4C;
+  margin: 0 30rpx;
+}
+.share-options {
+  text-align: center
+}
+.share-options image {
+  width: 50rpx;
+  height: 50rpx;
+}
+.share-button {
+  padding: 0;
+  margin: 28rpx auto 0;
+  background: none;
+  border: 0;
+  width: 50rpx;
+  height: 50rpx;
+  line-height: 1;
+  font-size: 0;
+  border-radius: 0;
+}
+.share-button::after {
+  display: none;
+}

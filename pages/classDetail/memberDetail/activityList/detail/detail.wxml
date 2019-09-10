@@ -1,0 +1,41 @@
+<!--pages/classDetail/memberDetail/activityList/detail/detail.wxml-->
+<view class='main-wrapper'>
+  <image mode='widthFix' src='{{info.pic}}'></image>
+  <view class='title'>{{info.topic_name}}</view>
+  <view class='subtitle'><text>#最新活动#</text> {{info.note}}</view>
+  <view class='browse'>
+    <image mode='widthFix' src='/icon/browse.png'></image>
+    <text>{{info.topic_read}}</text>
+  </view>
+  <view class='release'>
+    <image mode='widthFix' src='{{info.release_avatar}}'></image>
+    <view class='content'>
+      <view class='name'>玫瑰</view>
+      <view class='time'>发布时间：{{info.ctime}}</view>
+    </view>
+  </view>
+  <view class='block-item'>
+    <image mode='widthFix' src='/icon/time.png'></image>
+    <view class='cell'>
+      <view class='title'>活动时间</view>
+      <view class='value'>{{info.topic_time}}</view>
+    </view>
+  </view>
+  <view class='block-item'>
+    <image mode='widthFix' src='/icon/location.png'></image>
+    <view class='cell'>
+      <view class='title'>活动地址</view>
+      <view class='value'>{{info.topic_address}}</view>
+    </view>
+  </view>
+  <view class='share-title'>
+    <view>——</view>
+    <view>分享报名</view>
+    <view>——</view>
+  </view>
+  <view class='share-options'>
+    <button open-type='share' class='share-button'>
+      <image mode='widthFix' class='icon' src='/icon/wx.png'></image>
+    </button>
+  </view>
+</view>

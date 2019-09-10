@@ -1,0 +1,54 @@
+<!--pages/classDetail/memberDetail/dynamicList/detail/detail.wxml-->
+<scroll-view scroll-y bindscrolltolower="getComment">
+  <view class='card-content'>
+    <view class='card-head'>
+      <view class='avatar-name'>
+        <image mode='widthFix' src='{{detailInfo.user_info.avatar_middle}}'></image>
+        <text>{{detailInfo.user_info.uname}}</text>
+      </view>
+    </view>
+    <view class='card-title'><text>#{{detailInfo.feed_typename}}# </text>{{detailInfo.content_txt}}</view>
+    <view class='card-body'>
+      <image wx:for="{{detailInfo.attachInfo}}" mode='aspectFill' data-index='{{index}}' src='{{item.attach_url}}' bindtap='preViewImg'></image>
+    </view>
+    <view class='time-support'>
+      <view class='time'>{{detailInfo.publish_time}}</view>
+      <image mode='widthFix' wx:if="{{!isSupport}}" bindtap='support' src='/icon/support.png'></image>
+      <image mode='widthFix' wx:if="{{isSupport}}" bindtap='support' src='/icon/support_select.png'></image>
+    </view>
+  </view>
+
+  <view class='comment-list'>
+    <view class='comment-nums'>
+      <view>评论 {{detailInfo.comment_count}}</view>
+      <view>阅读 {{detailInfo.feed_read}}</view>
+    </view>
+    <view class='list-item' wx:for="{{comment_list}}">
+      <!-- 评论 type 1 -->
+      <image mode='aspectFill' src='{{item.user_info.avatar_middle}}'></image>
+      <view class='comment-content'>
+        <view class='name'>{{item.user_info.uname}}</view>
+        <!-- 评论 type 2 -->
+        <view class='text' data-type='2' data-tocommentid="{{item.comment_id}}" data-touid="{{item.uid}}" data-toname='{{item.user_info.uname}}'  data-index="{{index}}"  bindtap='comment'>{{item.content}}</view>
+        <view class='time {{item.replylist.length == 0 ? "no-margin" : ""}}'>{{item.ctime}}</view>
+        <view class='reply-list' wx:if="{{item.replylist.length}}">
+          <!-- 评论 type 3 -->
+          <view class='reply-item' wx:for="{{item.replylist}}" wx:for-item="obj" wx:for-index="_index" data-type='3' data-tocommentid="{{obj.comment_id}}"  data-touid="{{obj.uid}}" data-toname='{{obj.user_info.uname}}' data-index="{{index}}" bindtap='comment'>
+            <text class='blue'>{{obj.user_info.uname}}</text>
+            <text wx:if="{{obj.touser_info}}"> 回复 </text>
+            <text class='blue' wx:if="{{obj.touser_info}}">{{obj.touser_info.uname}}</text>
+            <text class='blue'>：</text>
+            <text class='reply-tetx'>{{obj.content}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{showload}}" class='loading'><image mode="widthFix" src='/icon/loading.png'></image></view>
+</scroll-view>
+<view class='message'>
+  <view class='input-wrapper'>
+    <input confirm-type="send" focus='{{inputFocus}}' value='{{inputValue}}' placeholder='{{placeholderStr}}' cursor-spacing="20" bindblur="inputBlur" bindinput="inputPrint" bindconfirm="inputConfirm"></input>
+  </view>
+  <view class='send-btn' bindtap="inputConfirm">发送</view>
+</view>

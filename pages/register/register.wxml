@@ -1,0 +1,43 @@
+<!--pages/register/register.wxml-->
+<view class='form-wrapper'>
+  <input value="{{username}}" data-name='username' bindinput="inputPrint" class='form-control name' placeholder-style='color: #9CA8BD' placeholder='请输入姓名'></input>
+  <input value="{{phone}}" data-name='phone' bindinput="inputPrint" type="number" class='form-control phone' placeholder-style='color: #9CA8BD' placeholder='请输入手机号'></input>
+  
+  <!-- <picker bindchange="selectProvince" value="{{index}}" range="{{province_list}}" range-key="title">
+    <view class='form-control area'>
+      <text class="{{province_name == '' ? 'placeholder' : ''}}">{{province_name == '' ? '请选择省份' : province_name}}</text>
+      <image src='/icon/down.png'></image>
+    </view>
+  </picker>
+
+  <picker wx:if="{{province_name}}" bindchange="selectCity" value="{{index}}" range="{{city_list}}" range-key="title">
+    <view class='form-control area'>
+      <text class="{{city_name == '' ? 'placeholder' : ''}}">{{city_name == '' ? '请选择城市' : city_name}}</text>
+      <image src='/icon/down.png'></image>
+    </view>
+  </picker>
+
+  <picker wx:if="{{city_name}}" bindchange="selectArea" value="{{index}}" range="{{area_list}}" range-key="title">
+    <view class='form-control area'>
+      <text class="{{area_name == '' ? 'placeholder' : ''}}">{{area_name == '' ? '请选择地区' : area_name}}</text>
+      <image src='/icon/down.png'></image>
+    </view>
+  </picker> -->
+
+  <picker bindchange="selectArea" value="{{index}}" range="{{arealist}}" range-key="cate_name">
+    <view class='form-control area'>
+      <text class="{{class_name == '' ? 'placeholder' : ''}}">{{area_name == '' ? '请选择班级所在地' : area_name}}</text>
+      <image src='/icon/down.png'></image>
+    </view>
+  </picker>
+
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" range-key="class_name">
+    <view class='form-control class'>
+      <text class="{{class_name == '' ? 'placeholder' : ''}}">{{class_name == '' ? '请选择毕业班级' : class_name}}</text>
+      <image src='/icon/down.png'></image>
+    </view>
+  </picker>
+
+  
+  <view class='submit' bindtap='submit'>提交</view>
+</view>

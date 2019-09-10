@@ -1,0 +1,5 @@
+<!--pages/center/infomation/edit/edit.wxml-->
+<view class='textarea'>
+  <textarea value='{{inputValue}}' focus bindinput="inputPrint" placeholder='请输入...'></textarea>
+</view>
+<view class='custom-btn'><text bindtap='submit'>保存</text></view>

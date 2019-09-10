@@ -1,0 +1,28 @@
+<!--pages/center/focus/focus.wxml-->
+<scroll-view scroll-y bindscrolltolower="getlist">
+  <view class='list'>
+    <navigator hover-class='none' url="{{'/pages/classDetail/memberDetail/memberDetail?id=' + item.uid}}" class='list-item' wx:for="{{list}}">
+      <view class='info'>
+        <image mode='widthFix' src='{{item.avatar_middle}}'></image>
+        <view>
+          <view class='name'>{{item.uname}}</view>
+          <view class='subinfo'>
+            <view wx:if="{{item.identify}}" class='postion'>{{item.identify}}</view>
+            <view wx:if="{{item.industry}}" class='trade'>{{item.industry}}</view>
+          </view>
+        </view>
+      </view>
+      <view class='unfocus'>
+        <image wx:if="{{listType == 1}}" mode='widthFix' src='/icon/cancel.png'></image>
+        <image wx:if="{{item.following == 0 && listType != 1}}" mode='widthFix' src='/icon/each.png'></image>
+        <text wx:if="{{listType == 1}}" data-index="{{index}}" catchtap='unFocus'>取消关注</text>
+        <text wx:else data-index="{{index}}" catchtap='focus'>{{item.following == 0 ? '互相关注' : '已关注'}}</text>
+      </view>
+    </navigator>
+  </view>
+  <view wx:if="{{showload}}" class='loading'><image mode="widthFix" src='/icon/loading.png'></image></view>
+  <view class='noMore' wx:if="{{noMore}}">
+    <image src='/icon/nomore.png'></image>
+    <view>暂无数据</view>
+  </view>
+</scroll-view>

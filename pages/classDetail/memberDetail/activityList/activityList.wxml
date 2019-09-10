@@ -1,0 +1,30 @@
+<!--pages/classDetail/memberDetail/activityList/activityList.wxml-->
+<scroll-view scroll-y bindscrolltolower="getlist">
+  <view class='list-wrapper'>
+    <navigator class='list-item' wx:for="{{list}}" hover-class="none" url="{{'./detail/detail'}}" >
+      <view class='card-head'>
+        <view class='avatar-name'>
+          <image mode='widthFix' src='/icon/avatar.jpeg'></image>
+          <text>玫瑰</text>
+        </view>
+        <view class='time'>17：16</view>
+      </view>
+      <image mode='widthFix' src='/icon/banner.jpg'></image>
+      <view class='title activity'>旅行跑得越远，我们走的越近</view>
+      <view class='title sub'>
+        <text>#会员动态#</text>旅行跑得越远，我们走的越近;旅行跑得越久，风景无限美好。
+      </view>
+      <view class='flex-sub-info'>
+        <view class='date'>
+          <image class='clock' mode='widthFix' src='/icon/clock.png'></image>
+          <text>11/05 星期天</text>
+        </view>
+        <view class='browse'>
+          <image mode='widthFix' src='/icon/browse.png'></image>
+          <text>2750</text>
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <view wx:if="{{showload}}" class='loading'><image mode="widthFix" src='/icon/loading.png'></image></view>
+</scroll-view>

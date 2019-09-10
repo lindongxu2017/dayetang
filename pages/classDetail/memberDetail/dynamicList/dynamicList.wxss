@@ -1,0 +1,77 @@
+/* pages/classDetail/memberDetail/dynamicList/dynamicList.wxss */
+page {
+  background-color: #F8F8F8;
+}
+scroll-view {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.list-item-wrapper {
+  padding: 30rpx 30rpx 0;
+  margin-bottom: 20rpx;
+  background-color: #fff;
+}
+.card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+.avatar-name image {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+  vertical-align: middle;
+}
+.avatar-name text {
+  font-size: 30rpx;
+  color: #3D3F4C;
+  vertical-align: middle;
+}
+.card-head .time {
+  font-size: 28rpx;
+  color: #3D3F4C;
+}
+.card-title {
+  font-size: 30rpx;
+  color: #9CA8BD;
+  margin-bottom: 20rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.card-title text {
+  color: #6EAFF1;
+}
+.card-body {
+  font-size: 0;
+}
+.card-body > image {
+  width: calc(33.3333333333% - 15rpx);
+  height: 140rpx;
+  margin-right: 15rpx;
+  margin-bottom: 15rpx;
+}
+.card-body > image:nth-child(3n) {
+  margin-right: 0;
+}
+.card-footer {
+  padding: 5rpx 0 20rpx;
+}
+.card-footer .block {
+  display: inline-block;
+  margin-right: 30rpx;
+}
+.card-footer .block image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+  vertical-align: middle;
+}
+.card-footer .block text {
+  font-size: 26rpx;
+  color: #9CA8BD;
+  vertical-align: middle;
+}

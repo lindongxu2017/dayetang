@@ -1,0 +1,61 @@
+<scroll-view scroll-y bindscrolltolower="getlist">
+  <view class='list-item-wrapper' wx:for="{{list}}">
+      <view class='list-item-content'>
+        <view class='card-head'>
+          <view class='avatar-name'>
+            <image mode='widthFix' src='{{item.user_info.avatar_middle}}'></image>
+            <text>{{item.uname}}</text>
+          </view>
+          <view class='time'>{{item.ctime}}</view>
+        </view>
+        <navigator hover-class="none" class='card-title' url="{{'/pages/classDetail/memberDetail/dynamicList/detail/detail?id=' + item.feed_id}}">
+          <text>#{{item.feed_typename}}# </text>{{item.feed_content}}
+        </navigator>
+        <view class='card-body'>
+          <image wx:for="{{item.attach}}" wx:for-item="obj" wx:for-index="order" mode='aspectFill' src='{{obj.attach_url}}' data-index='{{index}}' data-order='{{order}}' bindtap='previewImg'></image>
+        </view>
+        <view class='card-footer'>
+          <view class='browse'>{{item.feed_read}}人浏览</view>
+          <view class='operation'>
+            <view class='mask' data-index='{{index}}' catchtap='showOperation'>
+              <image mode='widthFix' src='/icon/message.png'></image>
+            </view>
+            <view class='lower {{item.show?"show":""}}' catchtap='stopPropagation'>
+              <view class='cell' data-index='{{index}}' catchtap='support'>
+                <image mode='widthFix' src='/icon/support_3.png'></image>
+                <text>{{item.is_digg?'取消':'点赞'}}</text>
+              </view>
+              <view class='cell' data-index='{{index}}' data-types='1' catchtap='comment'>
+                <image mode='widthFix' src='/icon/message_3.png'></image><text>评论</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class='reply-list {{item.comment.length?"":"no-pad"}}' wx:if="{{item.comment.length || item.diggs.length}}">
+          <view class='support-list {{item.comment.length?"":"no-border"}}'>
+            <image mode='widthFix' src='/icon/support.png'></image>
+            <image class='avatar' wx:for="{{item.diggs}}" wx:for-item="obj" src='{{obj.user.avatar_middle}}'></image>
+          </view>
+          <view class='reply-item' wx:for="{{item.comment}}" wx:for-item="obj" wx:for-index="_index" data-index='{{index}}' data-types="2" data-name='{{obj.user_info.uname}}' data-touid="{{obj.uid}}" data-feedid="{{obj.to_comment_id}}" bindtap='comment'>
+            <text class='blue'>{{obj.user_info.uname}}</text>
+            <text wx:if="{{obj.touser_info.uname}}"> 回复 </text>
+            <text class='blue' data-index='{{index}}' bindtap='comment' wx:if="{{obj.touser_info.uname}}">{{obj.touser_info.uname}}</text>
+            <text class='blue'>：</text>
+            <text class='reply-tetx'>{{obj.content}}</text>
+          </view>
+        </view>
+      </view>
+  </view>
+  <view wx:if="{{showload}}" class='loading'><image mode="widthFix" src='/icon/loading.png'></image></view>
+  <view class='noMore' wx:if="{{noMore}}">
+    <image src='/icon/nomore.png'></image>
+    <view>暂无数据</view>
+  </view>
+</scroll-view>
+<view class='message' wx:if="{{showInputBar}}">
+  <view class='input-wrapper'>
+    <input focus confirm-type="send" placeholder='{{placeholderStr}}' cursor-spacing="20" bindblur="inputBlur" bindinput="inputPrint" bindconfirm="inputConfirm"></input>
+  </view>
+  <view class='send-btn' bindtap='inputConfirm'>发送</view>
+</view>
+<navigator hover-class='none' class='addDynamic' url='../release/release'>+</navigator>

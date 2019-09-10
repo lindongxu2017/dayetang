@@ -1,0 +1,51 @@
+<!--pages/center/reputation/reputation.wxml-->
+<!-- <view class='list'>
+  <view class='list-item' wx:for="{{list}}">{{item.praise_name}}</view>
+</view>
+<view wx:if="{{showload}}" class='loading'><image mode="widthFix" src='/icon/loading.png'></image></view>
+<view class='noMore' wx:if="{{noMore}}">
+  <image src='/icon/nomore.png'></image>
+  <view>暂无数据</view>
+</view> -->
+
+<view class='cell-info white-space'>
+  <view class='cell-title'>印象</view>
+</view>
+<scroll-view scroll-x style="width: 100%;margin-right:100rpx;background-color:#fff;" bindscroll="scroll">
+  <view class='hexagon-wrapper' style='height: {{impressList.length == 1 ? "120px" : impressList.length == 2 ? "240px" : "300px"}}' wx:if="{{impressList.length > 0}}">
+    <view class='item' wx:for="{{impressList}}" style="left: {{item.multiple * 170 + 100 + (((index == list.length - 1) && (index % 3 == 0) ? (index + 1) % 3 : (index % 3)) == 1 ? -85 : 0) + 'rpx'}}; top: {{((index == list.length - 1) && (index % 3 == 0) ? (index + 1) % 3 : (index % 3)) * 140 + 'rpx'}}">
+      <view class='top single'></view>
+      <!-- <view class='middle-content'>{{item.multiple}}严肃{{index % 3}}</view> -->
+      <view class='middle-content'>{{item.impress_name}}</view>
+      <view class='bottom single'></view>
+    </view>
+  </view>
+  <view wx:if="{{showload}}" class='loading'><image mode="widthFix" src='/icon/loading.png'></image></view>
+  <view class='noMore' wx:if="{{noMore}}">
+    <image src='/icon/nomore.png'></image>
+    <view>暂无数据</view>
+  </view>
+</scroll-view>
+<view class='word-wrapper'>
+  <view class='cell-info white-space'>
+    <view class='cell-title'>口碑</view>
+  </view>
+  <view class='word-list'>
+    <view class='word-item' wx:for="{{wordList}}">
+      <image mode='aspectFill' src='{{item.set_userinfo.avatar_middle}}'></image>
+      <view class='word-info'>
+        <view class='word-name'>{{item.set_userinfo.uname}}</view>
+        <view class='word-company'>
+          <text wx:if="{{item.set_userinfo.company_name}}" class='text-pad'>{{item.set_userinfo.company_name}}</text>
+          <text wx:if="{{item.set_userinfo.identify}}" >{{item.set_userinfo.identify}}</text>
+        </view>
+        <view class='word-content'>{{item.praise_name}}</view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{showload2}}" class='loading'><image mode="widthFix" src='/icon/loading.png'></image></view>
+  <view class='noMore' wx:if="{{noData2 && activeTab == 3}}">
+    <image src='/icon/nomore.png'></image>
+    <view>暂无数据</view>
+  </view>
+</view>

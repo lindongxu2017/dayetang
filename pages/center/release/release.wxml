@@ -1,0 +1,16 @@
+<!--pages/center/release/release.wxml-->
+<view class='content-area'>
+  <textarea placeholder='要发布的内容...' placeholder-style='color: #9CA8BD' bindinput="inputPrint"></textarea>
+  <view class='img-wrapper' wx:for="{{previewImage}}">
+    <image class='del-btn' src='/icon/del.png' data-index='{{index}}' bindtap='deleteImg'></image>
+    <image mode='aspectFill' src='{{item}}' data-index='{{index}}' bindtap='previewImg'></image>
+  </view>
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{typeArray}}" range-key='type_name'>
+    <view class='typeChoose'>{{typeTextValue ? '#' + typeTextValue + '#' : typeTextValue || '#请选择类型#'}}</view>
+    <view class="picker">
+      当前选择：{{array[index]}}
+    </view>
+  </picker>
+  <image class='upload-btn' src='/icon/add.png' bindtap='uploadImg'></image>
+</view>
+<view class='custom-btn'><text bindtap='submit'>发布</text></view>

@@ -1,0 +1,32 @@
+view {
+  box-sizing: border-box;
+}
+/* loading动画 */
+.loading {
+  text-align: center;
+  padding: 30rpx;
+}
+.loading image {
+  width: 50rpx;
+  height: 50rpx;
+  animation: mymove 1s linear infinite;
+}
+@keyframes mymove {
+  from {transform: rotate(0);}
+  to {transform: rotate(360deg);}
+}
+.noMore {
+    text-align: center;
+    font-size: 0;
+    padding-top: 60rpx;
+}
+.noMore > image {
+    width: 120rpx;
+    height: 90rpx;
+    margin-bottom: 20rpx;
+}
+.noMore > view {
+    font-size: 24rpx;
+    text-align: center;
+    color: #8a8a8a;
+}

@@ -1,0 +1,12 @@
+<!--pages/classDetail/classDynamicInfo/classDynamicInfo.wxml-->
+<view class='main-content'>
+  <view class='title'>{{info.title}}</view>
+  <view class='subtitle'>
+    <view class='time'>{{info.create_time}}</view>
+    <view class='stage'>{{info.desc}}</view>
+  </view>
+  <view class='rich-content'>
+    <import src="../../../wxParse/wxParse.wxml" />
+    <template is="wxParse" data="{{wxParseData: article.nodes}}" />
+  </view>
+</view>

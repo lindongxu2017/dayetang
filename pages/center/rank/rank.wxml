@@ -1,0 +1,33 @@
+<!--pages/center/rank/rank.wxml-->
+<scroll-view scroll-y bindscrolltolower="getlist">
+  <view class='placeholder'></view>
+  <view class='list'>
+    <navigator hover-class='none' wx:for="{{list}}" url="{{'/pages/classDetail/memberDetail/memberDetail?id=' + item.uid}}" class='list-item'>
+      <view class='info'>
+        <view class='rank-level'>{{index + 1}}</view>
+        <view class='avatar-wrapper'>
+          <image wx:if="{{index == 0}}" class='crown' mode='widthFix' src='/icon/rank_1.png'></image>
+          <image wx:if="{{index == 1}}" class='crown' mode='widthFix' src='/icon/rank_2.png'></image>
+          <image wx:if="{{index == 2}}" class='crown' mode='widthFix' src='/icon/rank_3.png'></image>
+          <image class='avatar' mode='widthFix' src='{{item.avatar_middle}}'></image>
+        </view>
+        <view>
+          <view class='name'>{{item.uname}}</view>
+          <view class='subinfo'>
+            <view class='postion'>{{item.identify}}</view>
+            <view class='trade'>{{item.industry}}</view>
+          </view>
+        </view>
+      </view>
+      <view class='start-num'>
+        <view>{{item.spark}}</view>
+        <view>星火</view>
+      </view>
+    </navigator>
+  </view>
+  <view wx:if="{{showload}}" class='loading {{first?"first":""}}'><image mode="widthFix" src='/icon/loading.png'></image></view>
+  <view class='noMore' wx:if="{{noMore}}">
+    <image src='/icon/nomore.png'></image>
+    <view>暂无数据</view>
+  </view>
+</scroll-view>

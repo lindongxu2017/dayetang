@@ -1,0 +1,52 @@
+/* pages/register/register.wxss */
+page {
+  background-color: #f8f8f8;
+}
+.form-wrapper {
+  padding: 73rpx 44rpx 105rpx;
+  position: absolute;
+  top: 160rpx;
+  left: 56rpx;
+  right: 56rpx;
+  background-color: #fff;
+  border-radius: 6rpx;
+  box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.1);
+}
+.form-control {
+  width: 100%;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 28rpx;
+  color: #3D3F4C;
+  border: 1px solid #E5E5E5;
+  margin-bottom: 28rpx;
+  border-radius: 6rpx;
+  padding: 0 18rpx;
+  box-sizing: border-box;
+}
+.placeholder {
+  color: #9CA8BD;
+}
+.form-control.class,
+.form-control.area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.form-control.area image,
+.form-control.class image {
+  width: 14rpx;
+  height: 14rpx;
+}
+.form-control.class {
+  margin-bottom: 130rpx;
+}
+.submit {
+  height: 70rpx;
+  line-height: 70rpx;
+  background-color: #CD3F3F;
+  text-align: center;
+  font-size: 32rpx;
+  color: #fff;
+  border-radius: 6rpx;
+}

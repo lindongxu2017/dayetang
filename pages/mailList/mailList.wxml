@@ -1,0 +1,60 @@
+<!--pages/mailList/mailList.wxml-->
+<!--pages/center/rank/rank.wxml-->
+<scroll-view scroll-y bindscrolltolower="getlist">
+    <view class='types'>
+        <view class='screen'>
+            <text bindtap='screen'>附近的人</text>
+            <image bindtap='screen' src='/icon/down.png'></image>
+        </view>
+        <view class='screen'>
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{arealist}}" range-key='cate_name'>
+                <text>{{areaName}}</text>
+            </picker>
+            <image src='/icon/down.png'></image>
+        </view>
+    </view>
+    <view class='search-wrapper'>
+        <view class='search-bar'>
+            <image mode='widthFix' src='/icon/search_icon_gray.png'></image>
+            <input placeholder='输入关键字搜索' value="{{inputValue}}" bindinput='inputPrint' bindconfirm='query' confirm-type="search" focus></input>
+            <image mode='widthFix' class='del' bindtap='clear' src='/icon/delete.png'></image>
+        </view>
+        <view class='search-text' bindtap='query'>搜索</view>
+    </view>
+    <view class='list'>
+        <navigator hover-class='none' wx:for="{{list}}" url="{{'/pages/classDetail/memberDetail/memberDetail?id=' + item.uid}}" class='list-item'>
+            <image mode='aspectFill' src='{{item.avatar_middle}}'></image>
+            <view class='info'>
+                <view class='name-distance'>
+                    <view class='name'>{{item.uname}}</view>
+                    <view class='distance'></view>
+                </view>
+                <view class='other-info'>
+                    <view>{{item.identify}}</view>
+                    <view>{{item.industry}}</view>
+                </view>
+                <view class='num-info'>
+                    <view>
+                        <text>关注</text>
+                        <text>{{item.following_count || 0}}</text>
+                    </view>
+                    <view>
+                        <text>人气</text>
+                        <text>{{item.spark || 0}}</text>
+                    </view>
+                    <view>
+                        <text>点赞</text>
+                        <text>{{point || 0}}</text>
+                    </view>
+                </view>
+            </view>
+        </navigator>
+    </view>
+    <view wx:if="{{showload}}" class='loading'>
+        <image mode="widthFix" src='/icon/loading.png'></image>
+    </view>
+    <view class='noMore' wx:if="{{noMore}}">
+        <image src='/icon/nomore.png'></image>
+        <view>暂无数据</view>
+    </view>
+</scroll-view>

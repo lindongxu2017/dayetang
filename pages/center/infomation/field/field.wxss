@@ -1,0 +1,56 @@
+/* pages/center/infomation/field/field.wxss */
+.section {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.scroll-wrapper {
+  height: calc(100% - 130rpx);
+}
+scroll-view {
+  width: 100%;
+  height: 100%;
+}
+.area-list {
+  padding: 0 30rpx;
+}
+.area-type {
+  padding: 30rpx 0;
+  border-bottom: 1px solid #E5E5E5;
+}
+.area-list .area-type:last-child {
+  border-bottom: 0;
+}
+.area-title {
+  font-size: 32rpx;
+  color: #3D3F4C;
+  margin-bottom: 25rpx;
+}
+.area-item {
+  display: inline-block;
+  font-size: 26rpx;
+  padding: 13rpx 27rpx;
+  color: #DCDCDC;
+  border: 1px solid #DCDCDC;
+  border-radius: 54rpx;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+}
+.area-item.active {
+  color: #fff;
+  border-color: #CD3F3F;
+  background-color: #CD3F3F;
+}
+.btn-wrapper {
+  padding: 30rpx;
+}
+.btn {
+  width: 100%;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  color: #fff;
+  background-color: #CD3F3F;
+  border-radius: 6rpx;
+  font-size: 32rpx;
+}

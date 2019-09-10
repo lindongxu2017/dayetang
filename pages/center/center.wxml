@@ -1,0 +1,58 @@
+<!--pages/center/center.wxml-->
+<view class='header-info'>
+  <image class='avatar' mode='aspectFill' bindtap='goModify' src='{{userInfo.avatar_middle}}'></image>
+  <view class='some-info'>
+    <view class='name'>
+      <text>{{userInfo.uname}}</text>
+      <text>{{userInfo.last_login_day == 0 ? '今天已登录' : userInfo.last_login_day + '天前登录'}}</text>
+    </view>
+    <view class='info'>
+      <view wx:if="{{userInfo.identify}}">{{userInfo.identify}}</view>
+      <view wx:if="{{userInfo.industry}}">{{userInfo.industry}}</view>
+      <view wx:if="{{userInfo.come_city}}">{{userInfo.come_city}}</view>
+    </view>
+  </view>
+</view>
+<view class='card-wrapper'>
+  <view class='card' id="card">
+    <view class='field-list'>
+      <view class='field-item' wx:for="{{userInfo.tag}}">{{item}}</view>
+    </view>
+    <view class='grid-info'>
+      <view class='grid-item'><view>{{userInfo.spark}}</view><view>星火</view></view>
+      <view class='grid-item'><view>{{userInfo.point}}</view><view>点赞</view></view>
+      <view class='grid-item'><view>{{userInfo.comment}}</view><view>留言</view></view>
+      <view class='grid-item'><view>{{userInfo.feed}}</view><view>发布</view></view>
+    </view>
+    <view class='sign'>
+      <view class='text-info'>
+        <view><text class='text-key'>助教</text><text class='text-value'>{{userInfo.assistant}}</text></view>
+        <view><text class='text-key'>教练</text><text class='text-value'>{{userInfo.coach}}</text></view>
+        <view><text class='text-key'>签到</text><text class='text-value'>{{userInfo.sign}}</text></view>
+      </view>
+      <view class='sign-btn {{userInfo.ischeck ? "signed" : ""}}' bindtap='sign'>{{userInfo.ischeck?'已签到':'签到'}}</view>
+    </view>
+  </view>
+</view>
+<view class='link-list' style='padding-top:{{cardH - 65}}px'>
+  <navigator class='link-item' hover-class='none' url='./focus/focus?type=2'>
+    <view class='inline-cell'><text>我的粉丝</text><text>{{userInfo.follower_count}}</text></view>
+    <image mode='aspectFill' src='/icon/arrow_right.png'></image>
+  </navigator>
+  <navigator class='link-item' hover-class='none' url='./focus/focus?type=1'>
+    <view class='inline-cell'><text>我的关注</text><text>{{userInfo.following_count}}</text></view>
+    <image mode='aspectFill' src='/icon/arrow_right.png'></image>
+  </navigator>
+  <navigator class='link-item' hover-class='none' url='./rank/rank'>
+    <view>星火排名</view><image mode='aspectFill' src='/icon/arrow_right.png'></image>
+  </navigator>
+  <navigator class='link-item' hover-class='none' url='./dynamic/dynamic'>
+    <view>我的动态</view><image mode='aspectFill' src='/icon/arrow_right.png'></image>
+  </navigator>
+  <navigator class='link-item' hover-class='none' url='./reputation/reputation'>
+    <view>我的口碑印象</view><image mode='aspectFill' src='/icon/arrow_right.png'></image>
+  </navigator>
+  <!-- <navigator class='link-item' hover-class='none' url='./impress/impress'>
+    <view>我的印象</view><image mode='aspectFill' src='/icon/arrow_right.png'></image>
+  </navigator> -->
+</view>

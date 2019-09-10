@@ -1,0 +1,15 @@
+<!--pages/center/impress/impress.wxml-->
+<scroll-view scroll-x style="width: 100%;margin-right:100rpx;" bindscroll="scroll">
+  <view class='hexagon-wrapper' wx:if="{{list.length > 0}}">
+    <view class='item' wx:for="{{list}}" style="left: {{item.multiple * 170 + 100 + (((index == list.length - 1) && (index % 3 == 0) ? (index + 1) % 3 : (index % 3)) == 1 ? -85 : 0) + 'rpx'}}; top: {{((index == list.length - 1) && (index % 3 == 0) ? (index + 1) % 3 : (index % 3)) * 140 + 'rpx'}}">
+      <view class='top single'></view>
+      <view class='middle-content'>严肃</view>
+      <view class='bottom single'></view>
+    </view>
+  </view>
+  <view wx:if="{{showload}}" class='loading'><image mode="widthFix" src='/icon/loading.png'></image></view>
+  <view class='noMore' wx:if="{{noMore}}">
+    <image src='/icon/nomore.png'></image>
+    <view>暂无数据</view>
+  </view>
+</scroll-view>

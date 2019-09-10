@@ -1,0 +1,33 @@
+<!--pages/classDetail/memberDetail/dynamicList/dynamicList.wxml-->
+<scroll-view scroll-y bindscrolltolower="getlist">
+  <navigator hover-class="none" class='list-item-wrapper' wx:for="{{list}}" url="{{'./detail/detail?id=' + item.feed_id}}" >
+      <view class='list-item-content'>
+        <view class='card-head'>
+          <view class='avatar-name'>
+            <image mode='widthFix' src='{{item.avatar_big}}'></image>
+            <text>{{item.uname}}</text>
+          </view>
+          <view class='time'>{{item.ctime}}</view>
+        </view>
+        <view class='card-title'><text>#{{item.feed_typename}}# </text>{{item.content}}</view>
+        <view class='card-body'>
+          <image wx:for="{{item.attach}}" wx:for-item="obj" mode='aspectFill' src='{{obj.attach_url}}'></image>
+        </view>
+        <view class='card-footer'>
+          <view class='block'>
+            <image mode='widthFix' src='/icon/message.png'></image>
+            <text>{{item.comment_count}}</text>
+          </view>
+          <view class='block'>
+            <image mode='widthFix' src='/icon/browse.png'></image>
+            <text>{{item.feed_read}}</text>
+          </view>
+        </view>
+      </view>
+  </navigator>
+  <view wx:if="{{showload}}" class='loading'><image mode="widthFix" src='/icon/loading.png'></image></view>
+  <view class='noMore' wx:if="{{noMore}}">
+    <image src='/icon/nomore.png'></image>
+    <view>暂无数据</view>
+  </view>
+</scroll-view>
